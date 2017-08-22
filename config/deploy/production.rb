@@ -1,6 +1,6 @@
-USER = 'webmaster'
-SERVER = '1sc.saturn-r.ru'
-APP_NAME = 'saturn'
+USER = 'siteadmin'
+SERVER = 'seeboobs.ru'
+APP_NAME = 'metri-on'
 APP_SRV = "#{USER}@#{SERVER}"
 
 role :app, APP_SRV
@@ -42,23 +42,9 @@ namespace :assets do
   end
 end
 
-namespace :sitemap do
-  desc 'Copy assets with non digests'
-  task :refresh do
-    on roles(:web) do
-      within release_path do
-        with rails_env: fetch(:rails_env) do
-          execute :rake, 'sitemap:refresh'
-        end
-      end
-    end
-  end
-end
-
 namespace :deploy do
   before :compile_assets, 'cache:clear'
   after :compile_assets, 'assets:no_digest'
-  after :compile_assets, 'sitemap:refresh'
   after :finishing, 'deploy:cleanup'
 end
 

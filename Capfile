@@ -7,7 +7,6 @@ require 'capistrano/rvm'
 require 'capistrano/bundler'
 require 'capistrano/rails'
 require 'capistrano-db-tasks'
-require 'sshkit/sudo'
 
 # Include tasks from other gems included in your Gemfile
 #

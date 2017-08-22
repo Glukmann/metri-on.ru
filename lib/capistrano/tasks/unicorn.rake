@@ -3,7 +3,7 @@ namespace :unicorn do
     desc "#{command} unicorn"
     task command do
       on roles(:app) do
-        sudo "service unicorn_saturn #{command}"
+        sudo "service unicorn_metrion #{command}"
       end
     end
   end
