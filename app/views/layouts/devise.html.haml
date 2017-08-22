@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %base{href: '/'}
+    %title Админка
+    = stylesheet_link_tag    'package/devise', media: 'all'
+    = javascript_include_tag 'package/devise'
+
+  %body
+    .page
+      = yield
+
+
