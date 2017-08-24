@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
 
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.2.8'
+# Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -12,11 +13,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
-# Bootstrap framework
-gem 'bootstrap-sass', '~> 3.2.0'
-gem 'momentjs-rails', '>= 2.9.0'
-gem 'autoprefixer-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -28,81 +24,47 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'sprockets'
-gem 'acts_as_list'
-# Use ActiveAdmin
-gem 'rails_admin_acts_as_list'
-gem 'rails_admin', '~> 1.1.0'
-gem 'paperclip'
-gem 'ack_rails_admin_jcrop'
-gem 'rails_admin_toggleable'
-gem 'will_paginate', '~> 3.1.0'
-# rich text editor
 
-# Use Devise for authentication
-gem 'devise'
-gem 'devise-bootstrap-views'
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+gem 'slim-rails'
+# Use Unicorn as the app server
+# gem 'unicorn'
 
-# Authorization abilities
-gem 'cancancan', '~> 1.10'
-
-# Search Engine Optimization plugin
-gem 'meta-tags'
-gem 'sitemap_generator'
-gem 'translit'
-
-# Decorator
-gem 'draper'
-
-gem 'hstore_accessor'
-gem 'haml'
-gem 'ancestry'
-gem 'rails_admin_nestable', '~> 0.3.2'
-
-# Normalize AR attributes
-gem 'attribute_normalizer'
-gem 'attr_extras', '>= 3.2.0'
-
-gem 'nokogiri'
-gem 'translit'
-gem 'russian', '~> 0.6.0'
-gem 'enum_help'
-gem 'wicked_pdf'
-gem 'whenever', :require => false
-
-gem 'dotenv-rails'
-gem 'multi_xml'
-gem 'numerizer'
-
-gem 'sidetiq'
-gem 'sidekiq'
-gem 'redis'
-gem 'redis-namespace'
-gem 'geocoder'
-gem 'rchardet'
-gem 'fancybox2-rails', '~> 0.2.8'
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'letter_opener'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-
-  # Deploy features
-  gem 'capistrano'
-  gem 'capistrano-db-tasks', require: false
-  gem 'capistrano-nginx-unicorn'
-  gem 'capistrano-rails'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rvm'
-end
-
-# Use unicorn as the app server
-group :production do
-  gem 'unicorn'
-  gem 'unicorn-worker-killer'
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
 end
 
 group :development do
+  # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'bootstrap', '~> 4.0.0.alpha6'
+
+gem 'devise'
+
+gem 'bcrypt','~>3.1.11'
+
+
+gem 'rails_admin', '~> 1.1.0'
+gem 'paperclip'
+gem 'devise'
+gem 'devise-bootstrap-views'
+gem 'rails_admin_toggleable'
+
+gem 'dotenv-rails'
+gem 'cancancan', '~> 1.10'
+gem 'haml'
+
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'sprockets'
+gem 'autoprefixer-rails'
+gem 'sass-rails', '~> 5.0'
