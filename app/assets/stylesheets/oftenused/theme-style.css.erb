@@ -12,7 +12,7 @@ body a{
 }
 /*----start-header----*/
 .header{
-	background:url(../images/header-bg.jpg) no-repeat 0px 0px;
+	background:url(<%= asset_path('header-bg.jpg')%>) no-repeat 0px 0px;
 	background-size:100% 100%;
 	min-height:700px;
 }
@@ -28,7 +28,7 @@ body a{
 	font-weight: 500;
 }
 .top-nav ul li.active a{
-	background: url(../images/active-ico.png) no-repeat 50% 100%;
+	background: url(<%= asset_path('active-ico.png')%>) no-repeat 50% 100%;
 }
 .top-nav ul li.contatct-active a{
 	border:2px solid #394346;
@@ -127,7 +127,7 @@ nav a#pull {
 	}
 	nav a#pull:after {
 		content:"";
-		background: url('nav-icon.png') no-repeat;
+		background: url(<%= asset_path('nav-icon.png')%>) no-repeat;
 		width: 30px;
 		height: 30px;
 		display: inline-block;
@@ -208,7 +208,7 @@ nav a#pull {
 	width:12px;
 	height:20px;
 	display:inline-block;
-	background:url(../images/arrow-icon.png)no-repeat 0px 0px;
+	background:url(<%= asset_path('arrow-icon.png')%>)no-repeat 0px 0px;
 }
 .features-grid span{
 	height:140px;
@@ -321,7 +321,7 @@ nav a#pull {
 .work-map{
 	width: 757px;
 	height: 237px;
-	background: url(../images/work-map.png) no-repeat 0px 0px;
+	background: url(<%= asset_path('work-map.png')%>) no-repeat 0px 0px;
 	display: inline-block;
 	position: absolute;
 	top: 0px;
@@ -541,7 +541,7 @@ nav a#pull {
 	height: 23px;
 	width: 26px;
 	display: block;
-	background: url(../images/arrow-icon1.png) no-repeat 0px 0px;
+	background: url(<%= asset_path('arrow-icon1.png')%>) no-repeat 0px 0px;
 	position: absolute;
 	right: -20px;
 	z-index: 999;
@@ -551,10 +551,10 @@ nav a#pull {
 	background:#A4B7CF;
 }
 .arrow-icon1-l{
-	background: url(../images/arrow-icon1-l.png) no-repeat 0px 0px;
+	background: url(<%= asset_path('arrow-icon1-l.png')%>) no-repeat 0px 0px;
 }
 .arrow-icon1-r{
-	background: url(../images/arrow-icon1-r.png) no-repeat 0px 0px;
+	background: url(<%= asset_path('arrow-icon1-r.png')%>) no-repeat 0px 0px;
 	left: -20px;
 }
 /*----start-blog----*/
@@ -562,7 +562,7 @@ nav a#pull {
 	padding:3em 0;
 }
 .blog-time-line{
-	background:url(../images/blog-grids-bg.jpg) no-repeat 0px 0px;
+	background:url(<%= asset_path('blog-grids-bg.jpg')%>) no-repeat 0px 0px;
 	background-size:cover;
 	position:relative;
 	margin: 3em 0 0 0;
@@ -772,7 +772,7 @@ nav a#pull {
 	width: 12px;
 	height: 20px;
 	display: inline-block;
-	background: url(../images/arrow-icon.png)no-repeat 0px 0px;
+	background: url(<%= asset_path('arrow-icon.png')%>)no-repeat 0px 0px;
 }
 .contact-left p i{
 	color:#FD3B01;
@@ -840,7 +840,7 @@ nav a#pull {
 	height: 45px;
 	width: 28px;
 	display: block;
-	background: url(../images/map-pin.png) no-repeat 0px 0px;
+	background: url(<%= asset_path('map-pin.png')%>) no-repeat 0px 0px;
 	left: 50%;
 	position: absolute;
 	top: 250px;
@@ -887,7 +887,7 @@ nav a#pull {
 	height: 40px;
 	border: none;
 	text-indent: 100%;
-	background: url("../images/to-top1.png") no-repeat 0px 0px;
+	background: url(<%= asset_path('to-top1.png')%>) no-repeat 0px 0px;
 	border-radius: 30em;
 }
 #toTopHover {
@@ -935,7 +935,7 @@ nav a#pull {
 .work-map {
 	width: 672px;
 	height: 237px;
-	background: url(../images/work-map.png) no-repeat 0px 0px;
+	background: url(<%= asset_path('work-map.png')%>) no-repeat 0px 0px;
 	display: inline-block;
 	position: absolute;
 	top: 0px;
