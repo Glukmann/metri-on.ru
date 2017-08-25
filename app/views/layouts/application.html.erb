@@ -2,20 +2,15 @@
 <html>
 <head>
   <%= stylesheet_link_tag    'package/application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+
   <script type="text/javascript">
-      jQuery(document).ready(function($) {
-          $(".scroll").click(function(event){
-              event.preventDefault();
-              $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-          });
-      });
+    var app = app || {config: {}, modules: {coreApplicationBase: {}, application: {}}};
+  </script>
+  <%= javascript_include_tag 'package/application' %>
+  <script type="text/javascript">
   </script>
   <!---- start-smoth-scrolling---->
 
-  <script type="text/javascript">
-  var app = app || {config: {}, modules: {coreApplicationBase: {}, application: {}}};
-  </script>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -29,19 +24,6 @@
   <!----start-top-nav-script---->
   <script>
       $(function() {
-          var pull 		= $('#pull');
-          menu 		= $('nav ul');
-          menuHeight	= menu.height();
-          $(pull).on('click', function(e) {
-              e.preventDefault();
-              menu.slideToggle();
-          });
-          $(window).resize(function(){
-              var w = $(window).width();
-              if(w > 320 && menu.is(':hidden')) {
-                  menu.removeAttr('style');
-              }
-          });
       });
   </script>
   <!----//End-top-nav-script---->
