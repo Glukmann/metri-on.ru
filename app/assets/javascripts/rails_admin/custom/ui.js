@@ -95,112 +95,112 @@ $(window).load(function() {
       }
     });
   });
+  //TODO хз че за косяк
+  // $('#js-new-trait').remoteForm({
+  //   success: function(data, status, xhr) {
+  //     $.pjax.reload({container:"[data-pjax-container]"});
+  //   }
+  // });
 
-  $('#js-new-trait').remoteForm({
-    success: function(data, status, xhr) {
-      $.pjax.reload({container:"[data-pjax-container]"});
-    }
-  });
-
-  var
-    initAutocomplete = function() {
-      $('#js-trait-input').autocomplete({
-        source: function(request, response){
-          $.ajax({
-            type: 'GET',
-            dataType: 'json',
-            url : '/traits',
-            data:{
-              maxRows: 5,
-              q: request.term
-            },
-            success: function(data){
-              response(data.data);
-            }
-          });
-        },
-        delay: 100,
-        minLength: 0,
-        select: function(event, ui) {
-          getTraitForm(ui);
-
-        }
-      });
-      $('#js-trait-input').focus(function() {
-        $(this).autocomplete('search')
-      });
-    },
-
-    getTraitForm = function(obj) {
-      var data = obj;
-      data.id = $('#js-trait-input').data('productId');
-
-      $.ajax({
-        url: '/traits/form',
-        data: data,
-        success: function(data) {
-          $('#js-form-wrapper').html(data);
-          $('#js-trait-input').val(obj.item.label);
-        }
-      });
-    };
+  // var
+  //   initAutocomplete = function() {
+  //     $('#js-trait-input').autocomplete({
+  //       source: function(request, response){
+  //         $.ajax({
+  //           type: 'GET',
+  //           dataType: 'json',
+  //           url : '/traits',
+  //           data:{
+  //             maxRows: 5,
+  //             q: request.term
+  //           },
+  //           success: function(data){
+  //             response(data.data);
+  //           }
+  //         });
+  //       },
+  //       delay: 100,
+  //       minLength: 0,
+  //       select: function(event, ui) {
+  //         getTraitForm(ui);
+  //
+  //       }
+  //     });
+  //     $('#js-trait-input').focus(function() {
+  //       $(this).autocomplete('search')
+  //     });
+  //   },
+  //
+  //   getTraitForm = function(obj) {
+  //     var data = obj;
+  //     data.id = $('#js-trait-input').data('productId');
+  //
+  //     $.ajax({
+  //       url: '/traits/form',
+  //       data: data,
+  //       success: function(data) {
+  //         $('#js-form-wrapper').html(data);
+  //         $('#js-trait-input').val(obj.item.label);
+  //       }
+  //     });
+  //   };
 
 
 
-  initAutocomplete();
-
-  $(document).on('click', '#js-add-new-trait', function(e) {
-    var form  = $(this).closest('form');
-
-    e.preventDefault();
-
-    $.ajax({
-      url: form.attr('action'),
-      type: 'post',
-      data: form.serialize(),
-      success: function(data) {
-        $('#js-traits-edit-form').replaceWith($(data).find('#js-traits-edit-form'));
-        initAutocomplete();
-        initSort(successLogic);
-      }
-    });
-  });
-
-  var
-    updatePositions = function() {
-      $('#traits-sorter .traits-edit-string').each(function(i){
-        $(this).attr("data-position", i + 1);
-      });
-    },
-
-    initSort = function() {
-      $('#traits-sorter').sortable({
-        stop: function(e, ui) {
-          updatePositions();
-          var
-            id = ui.item.data('id'),
-            position = ui.item.data('position');
-
-          $.ajax({
-            url: './product_traits',
-            type: 'POST',
-            data: {trait_id: id, position: position},
-            success: successLogic
-          })
-        }
-      });
-    },
-
-    successLogic = function(data) {
-      var list = $(data).find('#traits-sorter');
-      $('#traits-sorter').replaceWith(list);
-      initSort(successLogic);
-    };
-
-  $('#rails_admin_nestable_live_update').click();
-  $('.solution_variant_products_field .ra-multiselect-header').hide();
-  $('.solution_variant_products_field .ra-multiselect-column.ra-multiselect-left').hide();
-  $('.solution_variant_products_field .ra-multiselect-column.ra-multiselect-center').hide();
-  $('.solution_variant_products_field .ra-multiselect-column.ra-multiselect-right .ra-multiselect-item-remove-all').hide();
-  initSort(successLogic);
+  // initAutocomplete();
+  //
+  // $(document).on('click', '#js-add-new-trait', function(e) {
+  //   var form  = $(this).closest('form');
+  //
+  //   e.preventDefault();
+  //
+  //   $.ajax({
+  //     url: form.attr('action'),
+  //     type: 'post',
+  //     data: form.serialize(),
+  //     success: function(data) {
+  //       $('#js-traits-edit-form').replaceWith($(data).find('#js-traits-edit-form'));
+  //       initAutocomplete();
+  //       initSort(successLogic);
+  //     }
+  //   });
+  // });
+  //
+  // var
+  //   updatePositions = function() {
+  //     $('#traits-sorter .traits-edit-string').each(function(i){
+  //       $(this).attr("data-position", i + 1);
+  //     });
+  //   },
+  //
+  //   initSort = function() {
+  //     $('#traits-sorter').sortable({
+  //       stop: function(e, ui) {
+  //         updatePositions();
+  //         var
+  //           id = ui.item.data('id'),
+  //           position = ui.item.data('position');
+  //
+  //         $.ajax({
+  //           url: './product_traits',
+  //           type: 'POST',
+  //           data: {trait_id: id, position: position},
+  //           success: successLogic
+  //         })
+  //       }
+  //     });
+  //   },
+  //
+  //   successLogic = function(data) {
+  //     var list = $(data).find('#traits-sorter');
+  //     $('#traits-sorter').replaceWith(list);
+  //     initSort(successLogic);
+  //   };
+  //
+  // $('#rails_admin_nestable_live_update').click();
+  // $('.solution_variant_products_field .ra-multiselect-header').hide();
+  // $('.solution_variant_products_field .ra-multiselect-column.ra-multiselect-left').hide();
+  // $('.solution_variant_products_field .ra-multiselect-column.ra-multiselect-center').hide();
+  // $('.solution_variant_products_field .ra-multiselect-column.ra-multiselect-right .ra-multiselect-item-remove-all').hide();
+  // initSort(successLogic);
 });
