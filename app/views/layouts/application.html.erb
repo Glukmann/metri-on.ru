@@ -29,10 +29,50 @@
   <!----//End-top-nav-script---->
 </head>
 <body>
+<!----start-header---->
+<div id="home" class="header scroll">
+  <div class="container">
+    <!---- start-logo---->
+    <div class="logo">
+      <a href="index.html"><img src="<%= asset_path('logo.png')%>" title="Mabur" /></a>
+    </div>
+    <!---- //End-logo---->
+    <!----start-top-nav---->
+    <nav class="top-nav">
+      <ul class="top-nav">
+        <li class="active"><a href="#home" class="scroll">В начало</a></li>
+        <li class="page-scroll"><a href="#fea" class="scroll">О нас</a></li>
+        <!--<li class="page-scroll"><a href="#port" class="scroll">Portfolio</a></li>-->
+        <li class="page-scroll"><a href="#blog" class="scroll">Новости</a></li>
+        <li class="page-scroll"><a href="#test" class="scroll">Команда</a></li>
+        <li class="contatct-active" class="page-scroll"><a href="#contact" class="scroll">Контакты</a></li>
+      </ul>
+      <a href="#" id="pull"><img src="<%= asset_path('nav-icon.png')%>" title="menu" /></a>
+    </nav>
+    <div class="clearfix"> </div>
+    <div class="slide-text text-center">
+      <h1>Метрион. Торговая компания.</h1>
+      <span>Товары со всего света.</span>
+      <a class="slide-btn" href="#">Каталог</a>
+    </div>
+    <!----//End-top-nav---->
+  </div>
+</div>
+<!----//End-header---->
   <%= yield %>
 </body>
 <footer>
+  <!----start-footer---->
+  <div class="footer">
+    <div class="container">
+      <div class="footer-left">
+        <a href="/admin">Админка (admin@example.com/password)</a>
 
+      </div>
+      <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    </div>
+  </div>
+  <!----//End-footer---->
   <%= yield :javascript_bottom%>
 </footer>
 </html>

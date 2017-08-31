@@ -1,34 +1,5 @@
 <!----start-container---->
-<!----start-header---->
-<div id="home" class="header scroll">
-    <div class="container">
-        <!---- start-logo---->
-        <div class="logo">
-            <a href="index.html"><img src="<%= asset_path('logo.png')%>" title="Mabur" /></a>
-        </div>
-        <!---- //End-logo---->
-        <!----start-top-nav---->
-        <nav class="top-nav">
-            <ul class="top-nav">
-                <li class="active"><a href="#home" class="scroll">В начало</a></li>
-                <li class="page-scroll"><a href="#fea" class="scroll">О нас</a></li>
-                <!--<li class="page-scroll"><a href="#port" class="scroll">Portfolio</a></li>-->
-                <li class="page-scroll"><a href="#blog" class="scroll">Новости</a></li>
-                <li class="page-scroll"><a href="#test" class="scroll">Команда</a></li>
-                <li class="contatct-active" class="page-scroll"><a href="#contact" class="scroll">Контакты</a></li>
-            </ul>
-            <a href="#" id="pull"><img src="<%= asset_path('nav-icon.png')%>" title="menu" /></a>
-        </nav>
-        <div class="clearfix"> </div>
-        <div class="slide-text text-center">
-            <h1>Метрион. Торговая компания.</h1>
-            <span>Товары со всего света.</span>
-            <a class="slide-btn" href="#">Каталог</a>
-        </div>
-        <!----//End-top-nav---->
-    </div>
-</div>
-<!----//End-header---->
+
 <!----start-feartures----->
 <div id="fea" class="features">
     <div class="container">
@@ -115,59 +86,25 @@
         <div class="col-md-6 blog-time-line-left">
         </div>
         <div class="col-md-6 blog-time-line-right">
+            <% @news.each do |post| %>
             <div class="blog-post">
                 <div class="col-md-2 blog-post-date">
-                    <span><label>2 jan</label></span>
+                  <span><label><time class="published" datetime="2015-11-01"><%= post.created_at.strftime("%d/%m")%></time></label></span>
                 </div>
                 <div class="col-md-10 blog-post-info">
-                    <span class="categorie">Category : <a href="#">Traveling</a></span>
-                    <h4 class="post-head"><a href="#">Lorem Ipsum Dolor Sit Amet</a></h4>
-                    <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet </p>
+                    <span class="categorie">Категория : <a href="#">общее</a></span>
+                    <h4 class="post-head"><%= link_to post.name, news_path(post.id) %></h4>
+                    <p><%= post.body %></p>
                 </div>
                 <div class="clearfix"> </div>
             </div>
             <div class="clearfix"> </div>
-            <div class="blog-post">
-                <div class="col-md-2 blog-post-date">
-                    <span><label>1 jan</label></span>
-                </div>
-                <div class="col-md-10 blog-post-info">
-                    <span class="categorie">Category : <a href="#">Food</a></span>
-                    <h4 class="post-head"><a href="#">Etiam placerat mauris orci. </a></h4>
-                    <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet </p>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="clearfix"> </div>
-            <div class="blog-post">
-                <div class="col-md-2 blog-post-date">
-                    <span><label>31 Des</label></span>
-                </div>
-                <div class="col-md-10 blog-post-info">
-                    <span class="categorie">Category : <a href="#">Traveling</a></span>
-                    <h4 class="post-head"><a href="#"> consectetur adipiscing elit. </a></h4>
-                    <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet </p>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="clearfix"> </div>
-            <div class="blog-post">
-                <div class="col-md-2 blog-post-date">
-                    <span><label>28 des</label></span>
-                </div>
-                <div class="col-md-10 blog-post-info">
-                    <span class="categorie">Category : <a href="#">Adventure</a></span>
-                    <h4 class="post-head"><a href="#">Ut convallis risus vitae mauris sodales</a></h4>
-                    <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet </p>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="clearfix"> </div>
+            <% end %>
             <div class="blog-post-time-line-connector">
                 <span> </span>
             </div>
             <div class="more-blog-post-time-line-connector">
-                <a href="#"><span>More</span></a>
+                <a href="#"><span>Далее</span></a>
             </div>
         </div>
         <div class="clearfix"> </div>
@@ -180,18 +117,19 @@
     <div class="container">
         <div class="head text-center">
             <h3><span> </span> Наша команда</h3>
-            <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. </p>
+          <p>Наша команда – это позитивные, активные и успешные сотрудники. Каждый уникален и ценен, являясь незаменимым ресурсом в достижении целей компании. Развиваясь вместе, мы стремительно движемся к наилучшим результатам, умея громко праздновать победы и поощряя каждого сотрудника за вклад в общий успех.</p>
+           <p>Мы любим жизнь, свою работу и наших клиентов. В этом главный успех команды Метрион. </p>
         </div>
         <!----start-testmonial-time-line---->
         <div class="test-monial-time-line">
             <div class="col-md-6 test-monial-time-line-left">
                 <div class="test-monial-time-line-grid test-monial-time-line-grid-l1">
                     <div class="col-md-9 test-monial-time-line-left-text">
-                        <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a.</p>
+                        <p>Руководитель отдела продаж</p>
                     </div>
                     <div class="col-md-3 test-monial-time-line-left-pic">
                         <img src="<%= asset_path('pic1.jpg')%>" title="name" />
-                        <a href="#">John Doe</a>
+                        <a href="#">Ольга Жук</a>
                     </div>
                     <span class="grid-point"> </span>
                 </div>
@@ -200,20 +138,20 @@
                 <div class="test-monial-time-line-grid test-monial-time-line-grid-r1">
                     <div class="col-md-3 test-monial-time-line-left-pic">
                         <img src="<%= asset_path('pic2.png')%>" title="name" />
-                        <a href="#">John Doe</a>
+                        <a href="#">Михаил Аскетов</a>
                     </div>
                     <div class="col-md-9 test-monial-time-line-left-text">
-                        <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a.</p>
+                        <p>Консультант по развитию. Координатор проектов</p>
                     </div>
                     <span class="grid-point grid-point1"> </span>
                 </div>
                 <div class="test-monial-time-line-grid test-monial-time-line-grid-r2">
                     <div class="col-md-3 test-monial-time-line-left-pic">
-                        <img src="<%= asset_path('pic2.png')%>" title="name" />
-                        <a href="#">John Doe</a>
+                        <img src="<%= asset_path('pic3.png')%>" title="name" />
+                        <a href="#">Игорь Костюк</a>
                     </div>
                     <div class="col-md-9 test-monial-time-line-left-text">
-                        <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a.</p>
+                        <p>Менеджер продаж.</p>
                     </div>
                     <span class="grid-point grid-point1"> </span>
                 </div>
@@ -223,7 +161,7 @@
                 <span> </span>
             </div>
             <div class="clearfix"> </div>
-            <a class="more-testmonial-time-line" href="#"> <span>More</span></a>
+            <a class="more-testmonial-time-line" href="#"> <span>Подробнее</span></a>
         </div>
     </div>
 </div>
@@ -232,18 +170,18 @@
 <!----start-contact---->
 <div id="contact" class="contact">
     <div class="contact-map">
-        <iframe src="https://maps.google.com/maps?t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=embed&amp;q=United+States&amp;ie=UTF8&amp;hq=&amp;hnear=United+States&amp;ll=37.359243,-91.525727&amp;spn=0.409036,0.837021&amp;z=11&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=embed&amp;q=United+States&amp;ie=UTF8&amp;hq=&amp;hnear=United+States&amp;ll=37.359243,-91.525727&amp;spn=0.409036,0.837021&amp;z=11&amp;source=embed"> </a></small>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2182.9184116433235!2d60.5812913162972!3d56.83018898085518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTbCsDQ5JzQ4LjciTiA2MMKwMzUnMDAuNSJF!5e0!3m2!1sru!2sru!4v1504167866921" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
     <div class="contact-grids">
         <div class="col-md-6 contact-left">
             <h3><span> </span> Контакты</h3>
-            <p><i class="fa fa-map-marker"> </i> Jl. Ringroad Utara no 17AB, Yogyakarta, 55282</p>
+            <p><i class="fa fa-map-marker"> </i>620014, Екатеринбург, пер. Центральный рынок, 6, 209А </p>
             <form>
-                <input type="text" value="Name " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+                <input type="text" value="Имя " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
                 <input type="text" value="info@mail.com *" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email@domain.com *';}">
-                <textarea onfocus="if(this.value == 'Message *') this.value='';" onblur="if(this.value == '') this.value='Message *;">Message *</textarea>
-                <p class="conditions"> <label><span>*</span>scelerisque sit amet felis sit nunc.</label></p>
-                <span class="submit-btn"><input type="submit" value="Send"></span>
+                <textarea onfocus="if(this.value == 'Сообщение *') this.value='';" onblur="if(this.value == '') this.value='Message *;">Сообщение *</textarea>
+                <p class="conditions"> <label><span>*</span>Обязательно заполните все поля</label></p>
+                <span class="submit-btn"><input type="submit" value="Отправить"></span>
             </form>
         </div>
         <div class="col-md-6 contact-right">
@@ -253,16 +191,6 @@
     </div>
 </div>
 <!----//End-contact---->
-<!----start-footer---->
-<div class="footer">
-    <div class="container">
-        <div class="footer-left">
-            <a href="/admin">Админка (admin@example.com/password)</a>
 
-        </div>
-        <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-    </div>
-</div>
-<!----//End-footer---->
 <!----//End-container---->
 

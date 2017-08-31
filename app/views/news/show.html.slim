@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @news.name
+p
+  strong User:
+  = @news.user
+p
+  strong Body:
+  = @news.body
+
+= link_to 'Edit', edit_news_path(@news)
+'  |
+= link_to 'Back', news_index_path
