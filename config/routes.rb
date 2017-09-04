@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :catalogs
+  resources :catalogs, only: [:index] do
+      collection { post :import }
+  end
+
   resources :news
   devise_for :users
 

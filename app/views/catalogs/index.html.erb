@@ -6,6 +6,40 @@
   </div>
 </div>
 
+<%= will_paginate @catalogs %>
+<table style="width:500px">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th style="text-align:right;">Price</th>
+    <th style="text-align:right;">Quantity</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @catalogs.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td style="text-align:right;"><%= product.col %></td>
+        <td style="text-align:right;"><%= product.article %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= will_paginate @catalogs %>
+<div class="pagination">
+  <span class="previous_page disabled">&#8592; Previous</span>
+  <em class="current">1</em>
+  <a rel="next" href="/products?page=2">2</a>
+  <a href="/products?page=3">3</a>
+  <a href="/products?page=4">4</a>
+  <a class="next_page" rel="next" href="/products?page=2">Next &#8594;</a>
+</div>
 
+<h3>Import a CSV File</h3>
+<%= form_tag import_catalogs_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+<% end %>
+</div>
 
 

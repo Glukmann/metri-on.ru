@@ -48,6 +48,7 @@ gem 'rails_admin_toggleable'
 gem 'dotenv-rails'
 gem 'cancancan', '~> 1.10'
 gem 'haml'
+gem 'will_paginate', '~> 3.0'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sprockets'

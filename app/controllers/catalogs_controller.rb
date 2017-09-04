@@ -4,9 +4,17 @@ class CatalogsController < ApplicationController
   # GET /catalogs
   # GET /catalogs.json
   def index
-    @catalogs = Catalog.all
+    @catalogs = Catalog.all.paginate(page: params[:page], per_page: 5)
   end
 
+  def import
+    begin
+    Catalog.import(params[:file])
+    redirect_to root_url, notice: "Products imported."
+    rescue
+      redirect_to root_url, notice: "Invalid CSV file format."
+    end
+  end
   # GET /catalogs/1
   # GET /catalogs/1.json
   def show
