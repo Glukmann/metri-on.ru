@@ -5,7 +5,7 @@ class Catalog < ActiveRecord::Base
     CSV.foreach(file.path, headers: true, col_sep: ";") do |row|
 
       product_hash = row.to_hash
-      product = Catalog.where(id: product_hash["id"])
+      product = Catalog.where(odinassid: product_hash["odinassid"])
 
       if product.count == 1
         product.first.update_attributes(product_hash)

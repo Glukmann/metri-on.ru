@@ -10,15 +10,15 @@
 <table style="width:500px">
   <thead>
   <tr>
-    <th>Name</th>
-    <th style="text-align:right;">Price</th>
-    <th style="text-align:right;">Quantity</th>
+    <th>Номенклатура</th>
+    <th style="text-align:right;">Количество</th>
+    <th style="text-align:right;">Артикул</th>
   </tr>
   </thead>
   <tbody>
   <% @catalogs.each do |product| %>
       <tr>
-        <td><%= product.name %></td>
+        <td><%= product.odinassname %></td>
         <td style="text-align:right;"><%= product.col %></td>
         <td style="text-align:right;"><%= product.article %></td>
       </tr>
