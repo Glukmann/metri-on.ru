@@ -8,12 +8,12 @@ class CatalogsController < ApplicationController
   end
 
   def import
-    begin
+    # begin
     Catalog.import(params[:file])
     redirect_to root_url, notice: "Products imported."
-    rescue
-      redirect_to root_url, notice: "Invalid CSV file format."
-    end
+    # rescue
+    #   redirect_to root_url, notice: "Invalid CSV file format."
+    # end
   end
   # GET /catalogs/1
   # GET /catalogs/1.json
