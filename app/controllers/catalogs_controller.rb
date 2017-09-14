@@ -4,7 +4,7 @@ class CatalogsController < ApplicationController
   # GET /catalogs
   # GET /catalogs.json
   def index
-    @catalogs = Catalog.all.paginate(page: params[:page], per_page: 5)
+    @catalogs = Catalog.all.paginate(page: params[:page], per_page: 50)
   end
 
   def import
